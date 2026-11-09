@@ -5,7 +5,7 @@ import { ImageResponse } from "next/og";
 
 import { isLocale } from "@/i18n/locales";
 import { getSeoCopy, isSeoPageId } from "@/i18n/seo/copy";
-
+export const runtime = "nodejs";
 const SIZE = { width: 1200, height: 630 };
 
 let fontsPromise: Promise<
