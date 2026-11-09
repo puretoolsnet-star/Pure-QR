@@ -10,7 +10,7 @@ import {
   softwareApplicationJsonLd,
   webPageJsonLd,
 } from "@/lib/seo/structured-data";
-export const dynamic = "force-dynamic";
+
 type PageParams = { locale: string };
 
 export function generateStaticParams() {
