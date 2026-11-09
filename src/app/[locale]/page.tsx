@@ -11,9 +11,6 @@ import {
   webPageJsonLd,
 } from "@/lib/seo/structured-data";
 
-// Примусовий динамічний рендеринг для уникнення помилок пререндерингу мовних маршрутів
-export const dynamic = "force-dynamic";
-
 type PageParams = { locale: string };
 
 export function generateStaticParams() {
