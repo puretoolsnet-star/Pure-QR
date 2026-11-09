@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   Contact,
   QrCode,
@@ -28,6 +29,17 @@ interface HomePageProps {
 
 export function HomePage({ locale }: HomePageProps) {
   const { t } = useI18n();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Поки компонент не змонтований на клієнті під час статики, повертаємо порожній скелет
+  // Це повністю усуває prerender-error через невідповідність сервер/клієнт локалі
+  if (!isMounted) {
+    return <div className="min-h-[60vh]" />;
+  }
 
   return (
     <div className="space-y-10">
