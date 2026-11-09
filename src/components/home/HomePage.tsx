@@ -11,7 +11,7 @@ import {
 
 import { HomeToolCard } from "@/components/home/HomeToolCard";
 import { useI18n } from "@/i18n/context";
-import { TOOL_IDS, type ToolId } from "@/i18n/locales";
+import { TOOL_IDS, type ToolId, type Locale } from "@/i18n/locales";
 
 const TOOL_ICONS: Record<ToolId, typeof QrCode> = {
   generator: QrCode,
@@ -22,7 +22,11 @@ const TOOL_ICONS: Record<ToolId, typeof QrCode> = {
   "logo-qr": Stamp,
 };
 
-export function HomePage() {
+interface HomePageProps {
+  locale: Locale;
+}
+
+export function HomePage({ locale }: HomePageProps) {
   const { t } = useI18n();
 
   return (
