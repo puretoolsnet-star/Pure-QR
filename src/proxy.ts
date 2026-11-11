@@ -1,12 +1,10 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
+import { DEFAULT_LOCALE } from "@/i18n/config";
 import { localizedPath } from "@/lib/i18n/routing";
 
-const LOCALE_PREFIX = new RegExp(`^/(${LOCALES.join("|")})(/|$)`);
-
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (
@@ -17,9 +15,6 @@ export function middleware(request: NextRequest) {
   ) {
     return NextResponse.next();
   }
-
-  const localeMatch = pathname.match(LOCALE_PREFIX);
-  const locale = localeMatch?.[1] ?? DEFAULT_LOCALE;
 
   if (pathname === "/") {
     return NextResponse.redirect(
@@ -33,12 +28,7 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-pureqr-locale", locale);
-
-  return NextResponse.next({
-    request: { headers: requestHeaders },
-  });
+  return NextResponse.next();
 }
 
 export const config = {

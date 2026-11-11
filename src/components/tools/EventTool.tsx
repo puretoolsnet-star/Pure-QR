@@ -8,18 +8,11 @@ import { QrStyleFields } from "@/components/tools/QrStyleFields";
 import { useI18n } from "@/i18n/context";
 import { buildEventPayload } from "@/lib/qr/formats";
 
-function defaultStart() {
-  const d = new Date();
-  d.setMinutes(0, 0, 0);
-  d.setHours(d.getHours() + 2);
-  return d.toISOString().slice(0, 16);
-}
-
 export function EventTool() {
   const { t } = useI18n();
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
-  const [start, setStart] = useState(defaultStart);
+  const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [description, setDescription] = useState("");
   const [dark, setDark] = useState("#042f2e");
