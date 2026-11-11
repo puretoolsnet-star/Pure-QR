@@ -1,27 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  Contact,
-  QrCode,
-  ScanLine,
-  Stamp,
-  UtensilsCrossed,
-  Wifi,
-} from "lucide-react";
 
-import { HomeToolCard } from "@/components/home/HomeToolCard";
+import { HomeCategorySection } from "@/components/home/HomeCategorySection";
+import { useCategoryAccordion } from "@/components/home/use-category-accordion";
 import { useI18n } from "@/i18n/context";
-import { TOOL_IDS, type ToolId, type Locale } from "@/i18n/locales";
-
-const TOOL_ICONS: Record<ToolId, typeof QrCode> = {
-  generator: QrCode,
-  wifi: Wifi,
-  vcard: Contact,
-  scanner: ScanLine,
-  menu: UtensilsCrossed,
-  "logo-qr": Stamp,
-};
+import { TOOL_CATEGORIES } from "@/lib/tools/catalog";
+import type { Locale } from "@/i18n/locales";
 
 interface HomePageProps {
   locale: Locale;
@@ -30,16 +15,17 @@ interface HomePageProps {
 export function HomePage({ locale }: HomePageProps) {
   const { t } = useI18n();
   const [isMounted, setIsMounted] = useState(false);
+  const { openCategories, toggleCategory } = useCategoryAccordion();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  // Поки компонент не змонтований на клієнті під час статики, повертаємо порожній скелет
-  // Це повністю усуває prerender-error через невідповідність сервер/клієнт локалі
   if (!isMounted) {
     return <div className="min-h-[60vh]" />;
   }
+
+  void locale;
 
   return (
     <div className="space-y-10">
@@ -58,18 +44,16 @@ export function HomePage({ locale }: HomePageProps) {
         </p>
       </section>
 
-      <section aria-label={t.home.toolsAria}>
-        <ul className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {TOOL_IDS.map((id) => {
-            const Icon = TOOL_ICONS[id];
-            return (
-              <li key={id}>
-                <HomeToolCard toolId={id} icon={Icon} />
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+      <div className="space-y-5 sm:space-y-6" aria-label={t.home.toolsAria}>
+        {TOOL_CATEGORIES.map((category) => (
+          <HomeCategorySection
+            key={category.id}
+            categoryId={category.id}
+            isOpen={openCategories[category.id] ?? true}
+            onToggleCategory={() => toggleCategory(category.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 }

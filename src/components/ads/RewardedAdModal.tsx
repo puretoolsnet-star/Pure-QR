@@ -6,12 +6,15 @@ import { createPortal } from "react-dom";
 
 import { useI18n } from "@/i18n/context";
 import type { ToolId } from "@/i18n/locales";
+import { BULK_EXPORT_TOOL_IDS } from "@/i18n/config";
 import {
   ADSTERRA_WATCH_MS,
   adsterraNative,
   loadAdsterraNative,
   triggerAdsterraReward,
 } from "@/lib/ads/adsterra";
+
+const BULK_EXPORT_WATCH_MS = 5_000;
 import { cn } from "@/lib/cn";
 
 type Phase = "idle" | "watching" | "ready";
@@ -27,9 +30,11 @@ type RewardedAdModalProps = {
 function RewardedAdModalPanel({
   onClose,
   onUnlocked,
+  watchMs,
 }: {
   onClose: () => void;
   onUnlocked: () => void;
+  watchMs: number;
 }) {
   const { t } = useI18n();
   const [phase, setPhase] = useState<Phase>("idle");
@@ -45,7 +50,7 @@ function RewardedAdModalPanel({
     const started = performance.now();
     let frame = 0;
     const tick = (now: number) => {
-      const next = Math.min(1, (now - started) / ADSTERRA_WATCH_MS);
+      const next = Math.min(1, (now - started) / watchMs);
       setProgress(next);
       if (next >= 1) {
         setPhase("ready");
@@ -55,7 +60,7 @@ function RewardedAdModalPanel({
     };
     frame = window.requestAnimationFrame(tick);
     return () => window.cancelAnimationFrame(frame);
-  }, [phase]);
+  }, [phase, watchMs]);
 
   useEffect(() => {
     if (phase !== "ready" || autoStarted.current) return;
@@ -79,7 +84,7 @@ function RewardedAdModalPanel({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [phase, onClose]);
 
-  const secondsLeft = Math.max(0, Math.ceil((1 - progress) * (ADSTERRA_WATCH_MS / 1000)));
+  const secondsLeft = Math.max(0, Math.ceil((1 - progress) * (watchMs / 1000)));
 
   return (
     <div
@@ -191,11 +196,16 @@ export function RewardedAdModal({
     return null;
   }
 
+  const watchMs = (BULK_EXPORT_TOOL_IDS as readonly string[]).includes(toolId)
+    ? BULK_EXPORT_WATCH_MS
+    : ADSTERRA_WATCH_MS;
+
   return createPortal(
     <RewardedAdModalPanel
       key={`${toolId}-${sessionKey}`}
       onClose={onClose}
       onUnlocked={onUnlocked}
+      watchMs={watchMs}
     />,
     document.body,
   );

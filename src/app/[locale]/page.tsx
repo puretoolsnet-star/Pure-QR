@@ -13,6 +13,8 @@ import {
 
 type PageParams = { locale: string };
 
+export const instant = false;
+
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }

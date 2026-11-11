@@ -20,3 +20,13 @@ export async function decodeQrFromFile(file: File): Promise<string | null> {
 
   return code?.data ?? null;
 }
+
+export function decodeQrFromCanvas(canvas: HTMLCanvasElement): string | null {
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const code = jsQR(imageData.data, imageData.width, imageData.height, {
+    inversionAttempts: "attemptBoth",
+  });
+  return code?.data ?? null;
+}

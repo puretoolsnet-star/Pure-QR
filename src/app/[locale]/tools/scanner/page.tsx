@@ -6,5 +6,7 @@ const { ToolPage, generateMetadata, generateStaticParams } = createToolPage(
   ScannerTool,
 );
 
+export const instant = false;
+
 export { generateMetadata, generateStaticParams };
 export default ToolPage;

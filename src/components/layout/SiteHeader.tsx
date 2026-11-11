@@ -5,14 +5,14 @@ import { QrCode } from "lucide-react";
 
 import { HeaderMenu } from "@/components/layout/HeaderMenu";
 import { useI18n } from "@/i18n/context";
-import { TOOL_IDS } from "@/i18n/locales";
-import { homeRoute, toolRoute } from "@/lib/i18n/routing";
+import { TOOL_CATEGORIES } from "@/lib/tools/catalog";
+import { homeRoute } from "@/lib/i18n/routing";
 
 export function SiteHeader() {
   const { locale, t } = useI18n();
 
   return (
-    <header className="sticky top-0 z-[80] border-b border-white/10 bg-[#090d16]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-[80] border-b border-white/10 bg-gray-950/90 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4 py-2.5 sm:gap-3 sm:px-6 sm:py-3">
         <Link
           href={homeRoute(locale)}
@@ -26,16 +26,16 @@ export function SiteHeader() {
         </Link>
 
         <nav
-          className="hidden min-w-0 flex-1 items-center justify-center gap-3 overflow-hidden text-sm text-gray-300 lg:flex"
+          className="hidden min-w-0 flex-1 items-center justify-center gap-2 overflow-hidden text-xs text-gray-300 lg:flex xl:gap-3 xl:text-sm"
           aria-label={t.nav.tools}
         >
-          {TOOL_IDS.map((id) => (
+          {TOOL_CATEGORIES.map((category) => (
             <Link
-              key={id}
-              href={toolRoute(locale, id)}
-              className="min-w-0 truncate transition hover:text-cyan-300"
+              key={category.id}
+              href={`${homeRoute(locale)}#category-${category.id}`}
+              className="min-w-0 truncate rounded-lg px-2 py-1 transition hover:bg-cyan-500/10 hover:text-cyan-300"
             >
-              {t.tools[id].title}
+              {t.home.categories[category.id].title}
             </Link>
           ))}
         </nav>

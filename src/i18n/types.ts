@@ -30,6 +30,13 @@ export type Dictionary = {
     toolsAria: string;
     openTool: string;
     privacyHighlight: string;
+    categories: Record<
+      import("@/i18n/config").ToolCategoryId,
+      { title: string; subtitle: string }
+    >;
+    expandCategory: string;
+    collapseCategory: string;
+    categoryToolsListAria: string;
   };
   common: {
     backHome: string;
@@ -41,6 +48,9 @@ export type Dictionary = {
     clear: string;
     clientSideNote: string;
     privacyReminder: string;
+    fieldError: string;
+    addRow: string;
+    removeRow: string;
   };
   tools: Record<
     ToolId,
@@ -87,6 +97,66 @@ export type Dictionary = {
     scanning: string;
     openLink: string;
     exportResult: string;
+    tabFile: string;
+    tabCamera: string;
+    cameraHint: string;
+    cameraStart: string;
+    cameraStop: string;
+    cameraDenied: string;
+  };
+  phone: { number: string; invalid: string };
+  email: { to: string; subject: string; body: string; invalid: string };
+  sms: { phone: string; message: string; invalid: string };
+  location: { lat: string; lng: string; label: string; invalid: string };
+  socials: {
+    platform: string;
+    username: string;
+    customUrl: string;
+    instagram: string;
+    telegram: string;
+    whatsapp: string;
+    facebook: string;
+    x: string;
+    tiktok: string;
+    linkedin: string;
+    youtube: string;
+    custom: string;
+    invalid: string;
+  };
+  multiLink: {
+    pageTitle: string;
+    linkLabel: string;
+    linkUrl: string;
+    addLink: string;
+    invalid: string;
+  };
+  event: {
+    title: string;
+    location: string;
+    start: string;
+    end: string;
+    description: string;
+    invalid: string;
+  };
+  pdfQr: { url: string; invalid: string };
+  appStore: { ios: string; android: string; invalid: string };
+  bulkQr: {
+    csvLabel: string;
+    csvPlaceholder: string;
+    csvHint: string;
+    rowCount: (n: number) => string;
+    exportAll: string;
+    invalidRows: string;
+    previewLimit: string;
+  };
+  pdfPrint: {
+    hint: string;
+    value: string;
+    label: string;
+    addRow: string;
+    print: string;
+    printTitle: string;
+    exportBatch: string;
   };
   menu: {
     urlLabel: string;
@@ -129,4 +199,41 @@ export type Dictionary = {
     close: string;
     slotLabel: string;
   };
+};
+
+export type LegacyToolId =
+  | "generator"
+  | "wifi"
+  | "vcard"
+  | "menu"
+  | "logo-qr"
+  | "scanner";
+
+/** Locale packs in dictionaries.ts before catalog merge. */
+export type RawLocaleDictionary = {
+  brand: Dictionary["brand"];
+  nav: Dictionary["nav"];
+  ecosystem: Dictionary["ecosystem"];
+  footer: Dictionary["footer"];
+  home: Omit<
+    Dictionary["home"],
+    "categories" | "expandCategory" | "collapseCategory" | "categoryToolsListAria"
+  >;
+  common: Omit<Dictionary["common"], "fieldError" | "addRow" | "removeRow">;
+  tools: Pick<Dictionary["tools"], LegacyToolId>;
+  generator: Dictionary["generator"];
+  wifi: Dictionary["wifi"];
+  vcard: Dictionary["vcard"];
+  menu: Dictionary["menu"];
+  logoQr: Dictionary["logoQr"];
+  scanner: Omit<
+    Dictionary["scanner"],
+    | "tabFile"
+    | "tabCamera"
+    | "cameraHint"
+    | "cameraStart"
+    | "cameraStop"
+    | "cameraDenied"
+  >;
+  rewardedAd: Dictionary["rewardedAd"];
 };

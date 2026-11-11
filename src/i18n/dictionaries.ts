@@ -1,7 +1,8 @@
 import type { Locale } from "@/i18n/config";
-import type { Dictionary } from "@/i18n/types";
+import { CATALOG_EXTRA } from "@/i18n/catalog-extra";
+import type { Dictionary, RawLocaleDictionary } from "@/i18n/types";
 
-const uk: Dictionary = {
+const uk: RawLocaleDictionary = {
   brand: { name: "PureQR", tagline: "QR-коди без серверів" },
   nav: {
     home: "Головна",
@@ -180,7 +181,7 @@ const uk: Dictionary = {
   },
 };
 
-const en: Dictionary = {
+const en: RawLocaleDictionary = {
   brand: { name: "PureQR", tagline: "QR codes without servers" },
   nav: {
     home: "Home",
@@ -358,7 +359,7 @@ const en: Dictionary = {
   },
 };
 
-const pl: Dictionary = {
+const pl: RawLocaleDictionary = {
   ...en,
   brand: { name: "PureQR", tagline: "Kody QR bez serwerów" },
   nav: {
@@ -538,7 +539,7 @@ const pl: Dictionary = {
   },
 };
 
-const de: Dictionary = {
+const de: RawLocaleDictionary = {
   ...en,
   brand: { name: "PureQR", tagline: "QR-Codes ohne Server" },
   nav: {
@@ -718,7 +719,7 @@ const de: Dictionary = {
   },
 };
 
-const es: Dictionary = {
+const es: RawLocaleDictionary = {
   ...en,
   brand: { name: "PureQR", tagline: "Códigos QR sin servidores" },
   nav: {
@@ -898,7 +899,7 @@ const es: Dictionary = {
   },
 };
 
-const fr: Dictionary = {
+const fr: RawLocaleDictionary = {
   ...en,
   brand: { name: "PureQR", tagline: "QR codes sans serveurs" },
   nav: {
@@ -1078,7 +1079,7 @@ const fr: Dictionary = {
   },
 };
 
-export const dictionaries: Record<Locale, Dictionary> = {
+export const dictionaries: Record<Locale, RawLocaleDictionary> = {
   uk,
   en,
   pl,
@@ -1087,6 +1088,35 @@ export const dictionaries: Record<Locale, Dictionary> = {
   fr,
 };
 
+function buildDictionary(locale: Locale): Dictionary {
+  const base = dictionaries[locale];
+  const extra = CATALOG_EXTRA[locale];
+  return {
+    ...base,
+    home: {
+      ...base.home,
+      categories: extra.categories,
+      expandCategory: extra.categoryAccordion.expandCategory,
+      collapseCategory: extra.categoryAccordion.collapseCategory,
+      categoryToolsListAria: extra.categoryAccordion.categoryToolsListAria,
+    },
+    tools: { ...base.tools, ...extra.tools } as Dictionary["tools"],
+    common: { ...base.common, ...extra.common },
+    scanner: { ...base.scanner, ...extra.scanner },
+    phone: extra.phone,
+    email: extra.email,
+    sms: extra.sms,
+    location: extra.location,
+    socials: extra.socials,
+    multiLink: extra.multiLink,
+    event: extra.event,
+    pdfQr: extra.pdfQr,
+    appStore: extra.appStore,
+    bulkQr: extra.bulkQr,
+    pdfPrint: extra.pdfPrint,
+  };
+}
+
 export function getDictionary(locale: Locale): Dictionary {
-  return dictionaries[locale];
+  return buildDictionary(locale);
 }

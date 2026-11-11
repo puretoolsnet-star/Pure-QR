@@ -1,3 +1,5 @@
+import { TOOL_IDS } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale, ToolId } from "@/i18n/locales";
 
 export type SeoPageId = "home" | ToolId;
@@ -8,7 +10,7 @@ export type SeoCopy = {
   keywords: string[];
 };
 
-const COPY: Record<SeoPageId, Record<Locale, SeoCopy>> = {
+const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
   home: {
     uk: {
       title: "Генератор QR-кодів онлайн без сервера | PureQR",
@@ -531,9 +533,17 @@ const COPY: Record<SeoPageId, Record<Locale, SeoCopy>> = {
 };
 
 export function getSeoCopy(page: SeoPageId, locale: Locale): SeoCopy {
-  return COPY[page][locale];
+  const explicit = COPY[page as keyof typeof COPY]?.[locale];
+  if (explicit) return explicit;
+  if (page === "home") return COPY.home![locale];
+  const tool = getDictionary(locale).tools[page as ToolId];
+  return {
+    title: `${tool.title} | PureQR`,
+    description: tool.hint ? `${tool.description} ${tool.hint}` : tool.description,
+    keywords: [tool.title, "PureQR", "QR code"],
+  };
 }
 
 export function isSeoPageId(value: string): value is SeoPageId {
-  return value in COPY;
+  return value === "home" || (TOOL_IDS as readonly string[]).includes(value);
 }
