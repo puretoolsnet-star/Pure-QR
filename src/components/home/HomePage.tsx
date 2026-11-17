@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { AdBanner } from "@/components/ads/AdBanner";
 import { HomeCategorySection } from "@/components/home/HomeCategorySection";
 import { useCategoryAccordion } from "@/components/home/use-category-accordion";
 import { useI18n } from "@/i18n/context";
@@ -44,15 +45,25 @@ export function HomePage({ locale }: HomePageProps) {
         </p>
       </section>
 
-      <div className="space-y-5 sm:space-y-6" aria-label={t.home.toolsAria}>
-        {TOOL_CATEGORIES.map((category) => (
-          <HomeCategorySection
-            key={category.id}
-            categoryId={category.id}
-            isOpen={openCategories[category.id] ?? true}
-            onToggleCategory={() => toggleCategory(category.id)}
-          />
-        ))}
+      <div className="grid w-full min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_min(100%,17.5rem)] lg:items-start">
+        <div
+          className="min-w-0 space-y-5 sm:space-y-6"
+          aria-label={t.home.toolsAria}
+        >
+          {TOOL_CATEGORIES.map((category) => (
+            <HomeCategorySection
+              key={category.id}
+              categoryId={category.id}
+              isOpen={openCategories[category.id] ?? true}
+              onToggleCategory={() => toggleCategory(category.id)}
+            />
+          ))}
+        </div>
+        <AdBanner
+          layout="sidebar"
+          slot="home-sidebar"
+          className="lg:sticky lg:top-6"
+        />
       </div>
     </div>
   );

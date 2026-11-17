@@ -199,6 +199,11 @@ export type Dictionary = {
     close: string;
     slotLabel: string;
   };
+  toolAd: {
+    sponsored: string;
+    slotTitle: string;
+    slotHint: string;
+  };
 };
 
 export type LegacyToolId =
@@ -236,4 +241,5 @@ export type RawLocaleDictionary = {
     | "cameraDenied"
   >;
   rewardedAd: Dictionary["rewardedAd"];
+  toolAd: Dictionary["toolAd"];
 };

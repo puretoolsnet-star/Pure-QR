@@ -179,6 +179,12 @@ const uk: RawLocaleDictionary = {
     close: "Закрити",
     slotLabel: "Спонсорський блок Adsterra",
   },
+  toolAd: {
+    sponsored: "Реклама",
+    slotTitle: "Місце для реклами",
+    slotHint:
+      "Партнерські оголошення тут допомагають тримати PureQR безкоштовним для всіх.",
+  },
 };
 
 const en: RawLocaleDictionary = {
@@ -356,6 +362,11 @@ const en: RawLocaleDictionary = {
     thanks: "Thank you for the support. Your file will download now.",
     close: "Close",
     slotLabel: "Adsterra sponsor block",
+  },
+  toolAd: {
+    sponsored: "Sponsored",
+    slotTitle: "Ad space",
+    slotHint: "Partner placements here help keep PureQR free for everyone.",
   },
 };
 
