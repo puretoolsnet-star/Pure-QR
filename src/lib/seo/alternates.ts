@@ -10,14 +10,24 @@ import {
 /** Path without locale prefix, e.g. `/` or `/tools/generator`. */
 export function hreflangLanguageAlternates(
   path: string,
+  options?: { origin?: string },
 ): Record<string, string> {
+  const toAbsolute = (p: string) => {
+    if (options?.origin) {
+      const base = options.origin.replace(/\/$/, "");
+      const normalized = p.startsWith("/") ? p : `/${p}`;
+      return `${base}${normalized}`;
+    }
+    return absoluteUrl(p);
+  };
+
   const languages: Record<string, string> = {};
 
   for (const locale of LOCALES) {
-    languages[HREFLANG_MAP[locale]] = absoluteUrl(localizedPath(locale, path));
+    languages[HREFLANG_MAP[locale]] = toAbsolute(localizedPath(locale, path));
   }
 
-  languages["x-default"] = absoluteUrl(
+  languages["x-default"] = toAbsolute(
     localizedPath(DEFAULT_LOCALE_SEO, path),
   );
 

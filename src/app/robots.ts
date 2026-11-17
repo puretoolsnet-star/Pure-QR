@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { getSiteUrl } from "@/lib/seo/site";
+import { CANONICAL_SITE_ORIGIN } from "@/lib/seo/site";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = getSiteUrl();
+  const base = CANONICAL_SITE_ORIGIN;
   const host = base.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
   return {

@@ -3,6 +3,9 @@ import { DEFAULT_LOCALE } from "@/i18n/locales";
 
 export const SITE_NAME = "PureQR";
 
+/** Stable production origin for sitemap.xml, robots.txt, and their hreflang URLs. */
+export const CANONICAL_SITE_ORIGIN = "https://qr.kixt.net";
+
 export function getSiteUrl(): string {
   const env = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (env) return env.replace(/\/$/, "");
@@ -37,4 +40,9 @@ export function absoluteUrl(path: string): string {
   const base = getSiteUrl();
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${base}${normalized}`;
+}
+
+export function canonicalAbsoluteUrl(path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${CANONICAL_SITE_ORIGIN}${normalized}`;
 }

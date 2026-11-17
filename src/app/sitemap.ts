@@ -3,7 +3,10 @@ import type { MetadataRoute } from "next";
 import { LOCALES, TOOL_IDS } from "@/i18n/locales";
 import { hreflangLanguageAlternates } from "@/lib/seo/alternates";
 import { localizedPath } from "@/lib/i18n/routing";
-import { absoluteUrl } from "@/lib/seo/site";
+import {
+  CANONICAL_SITE_ORIGIN,
+  canonicalAbsoluteUrl,
+} from "@/lib/seo/site";
 
 const STATIC_PATHS = ["/", ...TOOL_IDS.map((id) => `/tools/${id}`)] as const;
 
@@ -14,12 +17,14 @@ function sitemapEntry(
   lastModified: Date,
 ): MetadataRoute.Sitemap {
   return LOCALES.map((locale) => ({
-    url: absoluteUrl(localizedPath(locale, path)),
+    url: canonicalAbsoluteUrl(localizedPath(locale, path)),
     lastModified,
     changeFrequency,
     priority,
     alternates: {
-      languages: hreflangLanguageAlternates(path),
+      languages: hreflangLanguageAlternates(path, {
+        origin: CANONICAL_SITE_ORIGIN,
+      }),
     },
   }));
 }
