@@ -1,11 +1,5 @@
 const NATIVE_SRC = process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SRC?.trim() ?? "";
 const NATIVE_ID = process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_ID?.trim() ?? "";
-const SOCIAL_SRC =
-  process.env.NEXT_PUBLIC_ADSTERRA_SOCIAL_SRC?.trim() ||
-  "https://bauval.org/14/12dce9c8fc0a8bb8903d0b79449a67aa";
-
-/** Social Bar — підключається глобально в root layout. */
-export const ADSTERRA_SOCIAL_BAR_SRC = SOCIAL_SRC;
 const POPUNDER_SRC = process.env.NEXT_PUBLIC_ADSTERRA_POPUNDER_SRC?.trim() ?? "";
 
 export const ADSTERRA_WATCH_MS = 12_000;
@@ -79,8 +73,7 @@ export function loadAdsterraNative() {
 
 export function triggerAdsterraReward() {
   if (typeof window === "undefined") return;
-  const popunder = POPUNDER_SRC || SOCIAL_SRC;
-  if (popunder) ensureScript(popunder, "adsterra-reward-trigger");
+  if (POPUNDER_SRC) ensureScript(POPUNDER_SRC, "adsterra-reward-trigger");
   const invoke = (window as Window & { invoke?: () => void }).invoke;
   if (typeof invoke === "function") invoke();
 }
