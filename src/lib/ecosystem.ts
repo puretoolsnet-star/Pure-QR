@@ -24,17 +24,17 @@ function origin(value: string | undefined, fallback: string) {
 
 const purepdfOrigin = origin(
   process.env.NEXT_PUBLIC_ECOSYSTEM_PUREPDF_URL,
-  "http://localhost:3000",
+  "https://pdf.kixt.net",
 );
 
 const pureSignOrigin = origin(
   process.env.NEXT_PUBLIC_ECOSYSTEM_PURESIGN_URL,
-  "http://localhost:3004",
+  "https://sign.kixt.net",
 );
 
 const pureTableOrigin = origin(
   process.env.NEXT_PUBLIC_ECOSYSTEM_PURETABLE_URL,
-  "https://puretable.app",
+  "https://table.kixt.net",
 );
 
 export const ECOSYSTEM_PROJECTS: EcosystemProjectMeta[] = [

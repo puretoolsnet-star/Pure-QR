@@ -12,7 +12,7 @@ export function getSiteUrl(): string {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL.replace(/\/$/, "")}`;
   }
-  return "http://localhost:3000";
+  return CANONICAL_SITE_ORIGIN;
 }
 
 export const DEFAULT_LOCALE_SEO = DEFAULT_LOCALE;
