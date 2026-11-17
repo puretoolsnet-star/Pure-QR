@@ -93,3 +93,48 @@ input[type="range"] {
   padding: 0.625rem 1rem;
   font-size: 0.9375rem;
 }
+
+/* Header stays pinned and above any third-party ad widget. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+}
+
+/* Language / ecosystem menu is portaled to body, so it needs its own layer. */
+.site-header-menu {
+  position: fixed;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+}
+
+.rewarded-ad-modal {
+  z-index: 2147483647 !important;
+}
+
+/*
+ * Adsterra Social Bar / push widgets are injected as fixed nodes on <body>.
+ * Keep them one level under the header. On desktop, also park them in the
+ * bottom-right so the language and ecosystem menu stays clear.
+ */
+body > iframe[style*="position:fixed"],
+body > iframe[style*="position: fixed"],
+body > div[style*="position:fixed"]:not([data-pureqr-layer]),
+body > div[style*="position: fixed"]:not([data-pureqr-layer]),
+body > div:not([data-pureqr-layer]):has(> iframe[style*="position:fixed"]),
+body > div:not([data-pureqr-layer]):has(> iframe[style*="position: fixed"]) {
+  z-index: 2147483646 !important;
+}
+
+@media (min-width: 1024px) {
+  body > iframe[style*="position:fixed"],
+  body > iframe[style*="position: fixed"],
+  body > div[style*="position:fixed"]:not([data-pureqr-layer]),
+  body > div[style*="position: fixed"]:not([data-pureqr-layer]),
+  body > div:not([data-pureqr-layer]):has(> iframe[style*="position:fixed"]),
+  body > div:not([data-pureqr-layer]):has(> iframe[style*="position: fixed"]) {
+    top: auto !important;
+    bottom: 20px !important;
+  }
+}

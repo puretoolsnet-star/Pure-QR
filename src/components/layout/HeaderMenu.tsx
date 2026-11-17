@@ -12,7 +12,7 @@ import { localizedPath, stripLocalePrefix } from "@/lib/i18n/routing";
 import { cn } from "@/lib/cn";
 
 const menuSurfaceClass =
-  "z-[70] flex max-w-md flex-col overflow-hidden border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900";
+  "site-header-menu z-[70] flex max-w-md flex-col overflow-hidden border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900";
 
 const sheetClass =
   "fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-1/2 max-h-[min(calc(100dvh-5.5rem),32rem)] w-[92vw] -translate-x-1/2 rounded-2xl";
@@ -141,6 +141,7 @@ export function HeaderMenu() {
           role="dialog"
           aria-modal="true"
           aria-label={t.nav.menuAria}
+          data-pureqr-layer=""
           className={cn(menuSurfaceClass, sheet ? sheetClass : dropdownClass)}
           style={
             sheet || !anchor

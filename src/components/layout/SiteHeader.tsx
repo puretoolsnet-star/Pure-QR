@@ -12,7 +12,7 @@ export function SiteHeader() {
   const { locale, t } = useI18n();
 
   return (
-    <header className="sticky top-0 z-[80] border-b border-white/10 bg-gray-950/90 backdrop-blur-md">
+    <header className="site-header sticky top-0 border-b border-white/10 bg-gray-950/90 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4 py-2.5 sm:gap-3 sm:px-6 sm:py-3">
         <Link
           href={homeRoute(locale)}

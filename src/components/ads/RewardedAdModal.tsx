@@ -91,7 +91,8 @@ function RewardedAdModalPanel({
       role="dialog"
       aria-modal="true"
       aria-labelledby="rewarded-ad-title"
-      className="fixed inset-0 z-[100] flex items-end justify-center overflow-x-hidden overflow-y-auto bg-black/75 p-4 backdrop-blur-sm sm:items-center"
+      data-pureqr-layer=""
+      className="rewarded-ad-modal fixed inset-0 z-[100] flex items-end justify-center overflow-x-hidden overflow-y-auto bg-black/75 p-4 backdrop-blur-sm sm:items-center"
     >
       <div className="relative my-auto w-full max-w-lg overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/95 shadow-2xl shadow-black/50 backdrop-blur-xl">
         <div className="flex items-start justify-between gap-3 border-b border-slate-800 px-4 py-4 sm:gap-4 sm:px-5">
