@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
+
+import { ADSTERRA_SOCIAL_BAR_SRC } from "@/lib/ads/adsterra";
 
 import { DEFAULT_LOCALE } from "@/i18n/config";
 import { HTML_LANG } from "@/lib/seo/alternates";
@@ -40,6 +43,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} min-h-dvh max-w-full font-sans antialiased`}
       >
         {children}
+        <Script
+          id="adsterra-social-bar"
+          src={ADSTERRA_SOCIAL_BAR_SRC}
+          strategy="afterInteractive"
+          data-cfasync="false"
+        />
       </body>
     </html>
   );

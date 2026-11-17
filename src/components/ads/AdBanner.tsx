@@ -1,6 +1,12 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 import { useI18n } from "@/i18n/context";
+import {
+  ADSTERRA_BANNER,
+  mountAdsterraBanner,
+} from "@/lib/ads/adsterra";
 import { cn } from "@/lib/cn";
 
 export type AdBannerLayout = "sidebar" | "inline";
@@ -14,8 +20,7 @@ type AdBannerProps = {
 };
 
 /**
- * Standard ad placeholder — i18n labels, safe on touch devices
- * (no overlay; lives in document flow).
+ * Sidebar / inline Adsterra 300×250 — i18n sponsored label, scales inside narrow columns.
  */
 export function AdBanner({
   className,
@@ -23,7 +28,15 @@ export function AdBanner({
   slot = "tool-sidebar",
 }: AdBannerProps) {
   const { t } = useI18n();
+  const adHostRef = useRef<HTMLDivElement>(null);
   const isSidebar = layout === "sidebar";
+  const { width, height } = ADSTERRA_BANNER;
+
+  useEffect(() => {
+    const host = adHostRef.current;
+    if (!host) return;
+    return mountAdsterraBanner(host);
+  }, []);
 
   return (
     <aside
@@ -46,16 +59,25 @@ export function AdBanner({
       </p>
       <div
         className={cn(
-          "glass-card flex w-full max-w-full flex-col items-center justify-center rounded-xl border border-dashed border-white/15 bg-surface/30 px-4 py-5 text-center",
-          isSidebar
-            ? "min-h-[6.5rem] sm:min-h-[7.5rem] lg:min-h-[8rem]"
-            : "min-h-[5.5rem]",
+          "glass-card w-full max-w-full overflow-hidden rounded-xl border border-white/10 bg-surface/30",
+          isSidebar ? "max-w-[300px] mx-auto lg:mx-0" : "mx-auto max-w-[300px]",
         )}
+        style={{ aspectRatio: `${width} / ${height}` }}
       >
-        <p className="text-sm font-medium text-gray-300">{t.toolAd.slotTitle}</p>
-        <p className="mt-2 max-w-xs text-xs leading-relaxed text-gray-500">
-          {t.toolAd.slotHint}
-        </p>
+        <div
+          className="relative h-full w-full [container-type:inline-size]"
+          style={{ maxWidth: width }}
+        >
+          <div
+            ref={adHostRef}
+            className="absolute left-0 top-0 origin-top-left"
+            style={{
+              width,
+              height,
+              transform: `scale(calc(100cqw / ${width}px))`,
+            }}
+          />
+        </div>
       </div>
     </aside>
   );
