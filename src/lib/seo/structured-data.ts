@@ -100,6 +100,26 @@ export function breadcrumbJsonLd(toolId: ToolId, locale: Locale) {
   };
 }
 
+export function faqPageJsonLd(
+  faq: { question: string; answer: string }[],
+  pageUrl: string,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 export function buildToolStructuredData(toolId: ToolId, locale: Locale) {
   const d = getDictionary(locale);
   const tool = d.tools[toolId];

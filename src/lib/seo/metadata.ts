@@ -7,6 +7,8 @@ import { hreflangLanguageAlternates } from "@/lib/seo/alternates";
 import { localizedPath } from "@/lib/i18n/routing";
 import {
   absoluteUrl,
+  CANONICAL_SITE_ORIGIN,
+  canonicalAbsoluteUrl,
   OPEN_GRAPH_LOCALE,
   SITE_NAME,
   getSiteUrl,
@@ -20,7 +22,7 @@ function pathForPage(page: SeoPageId): string {
 export function buildPageMetadata(page: SeoPageId, locale: Locale): Metadata {
   const copy = getSeoCopy(page, locale);
   const path = pathForPage(page);
-  const canonical = absoluteUrl(localizedPath(locale, path));
+  const canonical = canonicalAbsoluteUrl(localizedPath(locale, path));
   const ogImage = absoluteUrl(`/og/${locale}/${page}`);
 
   const imageAlt = copy.title;
@@ -31,7 +33,9 @@ export function buildPageMetadata(page: SeoPageId, locale: Locale): Metadata {
     keywords: copy.keywords,
     alternates: {
       canonical,
-      languages: hreflangLanguageAlternates(path),
+      languages: hreflangLanguageAlternates(path, {
+        origin: CANONICAL_SITE_ORIGIN,
+      }),
     },
     openGraph: {
       type: "website",

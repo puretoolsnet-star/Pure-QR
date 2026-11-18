@@ -13,7 +13,7 @@ export type SeoCopy = {
 const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
   home: {
     uk: {
-      title: "Генератор QR-кодів онлайн без сервера | PureQR",
+      title: "Створити QR код онлайн безкоштовно — PureQR",
       description:
         "Безкоштовний генератор і сканер QR у браузері: текст, Wi‑Fi, vCard, меню кафе та код із логотипом. Паролі й контакти не залишають пристрій.",
       keywords: [
@@ -28,7 +28,7 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
       ],
     },
     en: {
-      title: "Free QR Code Generator — Private & Browser-Based | PureQR",
+      title: "Free QR Code Generator Online — PureQR",
       description:
         "Create and scan QR codes in your browser: text, Wi‑Fi, vCard, restaurant menus and branded logos. Nothing is uploaded to a server.",
       keywords: [
@@ -43,7 +43,7 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
       ],
     },
     de: {
-      title: "QR-Code Generator online — lokal im Browser | PureQR",
+      title: "QR-Code Generator online kostenlos — PureQR",
       description:
         "QR-Codes kostenlos erstellen und scannen: Text, WLAN, vCard, Speisekarte und Logo. Passwörter und Kontakte bleiben auf Ihrem Gerät.",
       keywords: [
@@ -57,7 +57,7 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
       ],
     },
     fr: {
-      title: "Générateur de QR code gratuit dans le navigateur | PureQR",
+      title: "Générateur QR code gratuit en ligne — PureQR",
       description:
         "Créez et scannez des QR codes localement : texte, Wi‑Fi, vCard, menu de restaurant et logo. Aucune donnée n’est envoyée à un serveur.",
       keywords: [
@@ -71,7 +71,7 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
       ],
     },
     es: {
-      title: "Generador de códigos QR gratis en el navegador | PureQR",
+      title: "Generador de códigos QR gratis online — PureQR",
       description:
         "Crea y escanea códigos QR en local: texto, Wi‑Fi, vCard, menú de restaurante y logo. Las contraseñas y contactos no salen de tu dispositivo.",
       keywords: [
@@ -85,7 +85,7 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
       ],
     },
     pl: {
-      title: "Generator kodów QR online — prywatnie w przeglądarce | PureQR",
+      title: "Darmowy generator kodów QR online — PureQR",
       description:
         "Twórz i skanuj kody QR lokalnie: tekst, Wi‑Fi, vCard, menu lokalu i logo. Hasła i kontakty nie trafiają na serwer.",
       keywords: [
@@ -528,6 +528,424 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
         "logo w kodzie QR",
         "PureQR",
       ],
+    },
+  },
+  email: {
+    uk: {
+      title: "QR-код для email — prepopulated лист | PureQR",
+      description:
+        "Створіть QR, що відкриває чернетку листа з адресою, темою та текстом. Усі поля збираються лише у браузері.",
+      keywords: ["QR email", "QR код для листа", "mailto QR", "PureQR"],
+    },
+    en: {
+      title: "Email QR Code Generator — Pre-filled Mailto | PureQR",
+      description:
+        "Build a QR that opens an email draft with address, subject and body filled in. Composed locally in your browser.",
+      keywords: ["email QR code", "mailto QR", "QR for email", "PureQR"],
+    },
+    de: {
+      title: "E-Mail-QR-Code mit vorausgefüllter Nachricht | PureQR",
+      description:
+        "QR-Code, der einen E-Mail-Entwurf mit Empfänger, Betreff und Text öffnet — lokal im Browser erstellt.",
+      keywords: ["E-Mail QR Code", "mailto QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code e-mail — brouillon prérempli | PureQR",
+      description:
+        "Créez un QR qui ouvre un brouillon avec destinataire, objet et message. Composition locale dans le navigateur.",
+      keywords: ["QR code e-mail", "mailto QR", "PureQR"],
+    },
+    es: {
+      title: "Código QR para email — borrador preparado | PureQR",
+      description:
+        "Genera un QR que abre un borrador con destinatario, asunto y cuerpo. Todo se compone en tu navegador.",
+      keywords: ["QR email", "mailto QR", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR do e-mail — wstępnie wypełniona wiadomość | PureQR",
+      description:
+        "Kod QR otwierający szkic wiadomości z adresem, tematem i treścią — tworzony lokalnie w przeglądarce.",
+      keywords: ["kod QR e-mail", "mailto QR", "PureQR"],
+    },
+  },
+  sms: {
+    uk: {
+      title: "QR-код для SMS з номером і текстом | PureQR",
+      description:
+        "Закодуйте номер телефону та повідомлення SMS у QR для швидкого набору після сканування. Дані не відправляються на сервер.",
+      keywords: ["QR SMS", "QR код SMS", "SMS QR generator", "PureQR"],
+    },
+    en: {
+      title: "SMS QR Code Generator | PureQR",
+      description:
+        "Encode a phone number and SMS body into a scannable QR. Built entirely in your browser.",
+      keywords: ["SMS QR code", "text message QR", "PureQR"],
+    },
+    de: {
+      title: "SMS-QR-Code erstellen | PureQR",
+      description:
+        "Telefonnummer und SMS-Text als QR-Code — Erstellung vollständig lokal im Browser.",
+      keywords: ["SMS QR Code", "QR SMS", "PureQR"],
+    },
+    fr: {
+      title: "QR code SMS — numéro et message | PureQR",
+      description:
+        "Encodez un numéro et un texte SMS dans un QR scannable, créé localement dans le navigateur.",
+      keywords: ["QR code SMS", "SMS QR", "PureQR"],
+    },
+    es: {
+      title: "Código QR SMS con número y texto | PureQR",
+      description:
+        "Codifica teléfono y mensaje SMS en un QR. Generación local en el navegador.",
+      keywords: ["QR SMS", "código QR mensaje", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR SMS — numer i treść | PureQR",
+      description:
+        "Zakoduj numer i treść SMS w kodzie QR. Tworzenie wyłącznie w przeglądarce.",
+      keywords: ["kod QR SMS", "SMS QR", "PureQR"],
+    },
+  },
+  phone: {
+    uk: {
+      title: "QR-код для дзвінка — номер телефону | PureQR",
+      description:
+        "QR формату tel: для миттєвого набору номера після сканування. Номер залишається на пристрої під час генерації.",
+      keywords: ["QR телефон", "QR дзвінок", "tel QR", "PureQR"],
+    },
+    en: {
+      title: "Phone Call QR Code — Tel Link | PureQR",
+      description:
+        "Create a tel: QR so scanners can dial your number instantly. Encoded locally in the browser.",
+      keywords: ["phone QR code", "call QR", "tel QR", "PureQR"],
+    },
+    de: {
+      title: "Anruf-QR-Code mit Telefonnummer | PureQR",
+      description:
+        "tel:-QR für sofortiges Wählen nach dem Scan. Lokal im Browser erzeugt.",
+      keywords: ["Telefon QR Code", "Anruf QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code appel téléphonique | PureQR",
+      description:
+        "QR tel: pour composer un numéro en un scan. Créé localement dans le navigateur.",
+      keywords: ["QR code téléphone", "appel QR", "PureQR"],
+    },
+    es: {
+      title: "Código QR para llamada telefónica | PureQR",
+      description:
+        "QR tel: para marcar al instante tras escanear. Generado en local en el navegador.",
+      keywords: ["QR teléfono", "llamada QR", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR do połączenia telefonicznego | PureQR",
+      description:
+        "QR tel: umożliwiający szybkie wybieranie numeru. Kodowanie lokalne w przeglądarce.",
+      keywords: ["kod QR telefon", "połączenie QR", "PureQR"],
+    },
+  },
+  location: {
+    uk: {
+      title: "QR-код геолокації — координати на карті | PureQR",
+      description:
+        "Передайте широту, довготу та назву місця в QR для навігації. Координати кодуєте лише у браузері.",
+      keywords: ["QR геолокація", "QR координати", "карта QR", "PureQR"],
+    },
+    en: {
+      title: "Location QR Code — Map Coordinates | PureQR",
+      description:
+        "Share latitude, longitude and a place label in a geo QR for navigation. Encoded only in your browser.",
+      keywords: ["location QR code", "GPS QR", "map QR", "PureQR"],
+    },
+    de: {
+      title: "Standort-QR-Code mit Koordinaten | PureQR",
+      description:
+        "Breiten- und Längengrad plus Ortsname als Navigations-QR — lokal im Browser.",
+      keywords: ["Standort QR Code", "GPS QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code de localisation GPS | PureQR",
+      description:
+        "Partagez latitude, longitude et libellé du lieu dans un QR géo, créé dans le navigateur.",
+      keywords: ["QR code localisation", "GPS QR", "PureQR"],
+    },
+    es: {
+      title: "Código QR de ubicación y coordenadas | PureQR",
+      description:
+        "Comparte latitud, longitud y nombre del lugar en un QR geo. Codificación local en el navegador.",
+      keywords: ["QR ubicación", "GPS QR", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR lokalizacji — współrzędne mapy | PureQR",
+      description:
+        "Szerokość, długość geograficzna i etykieta miejsca w kodzie QR do nawigacji — lokalnie w przeglądarce.",
+      keywords: ["kod QR lokalizacja", "GPS QR", "PureQR"],
+    },
+  },
+  socials: {
+    uk: {
+      title: "QR-код для соцмереж — профілі та сторінки | PureQR",
+      description:
+        "Один QR на посилання Instagram, TikTok, YouTube, Facebook та інші. Усі URL залишаються у вашій сесії браузера.",
+      keywords: ["QR соцмережі", "QR Instagram", "QR TikTok", "PureQR"],
+    },
+    en: {
+      title: "Social Media QR Code Generator | PureQR",
+      description:
+        "Point a QR to Instagram, TikTok, YouTube, Facebook and more. Links are composed locally in the browser.",
+      keywords: ["social media QR", "Instagram QR code", "PureQR"],
+    },
+    de: {
+      title: "Social-Media-QR-Code | PureQR",
+      description:
+        "QR zu Instagram, TikTok, YouTube und weiteren Profilen — lokal im Browser erstellt.",
+      keywords: ["Social Media QR", "Instagram QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code réseaux sociaux | PureQR",
+      description:
+        "Liez Instagram, TikTok, YouTube et d’autres profils dans un QR créé localement.",
+      keywords: ["QR code réseaux sociaux", "Instagram QR", "PureQR"],
+    },
+    es: {
+      title: "Código QR para redes sociales | PureQR",
+      description:
+        "Apunta un QR a Instagram, TikTok, YouTube y más perfiles. Enlaces generados en el navegador.",
+      keywords: ["QR redes sociales", "Instagram QR", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR mediów społecznościowych | PureQR",
+      description:
+        "QR do Instagrama, TikToka, YouTube i innych profili — tworzony lokalnie w przeglądarce.",
+      keywords: ["QR social media", "Instagram QR", "PureQR"],
+    },
+  },
+  "multi-link": {
+    uk: {
+      title: "QR з кількома посиланнями — link hub | PureQR",
+      description:
+        "Зберіть декілька URL в одному QR для bio-сторінок і кампаній. Список посилань формується локально.",
+      keywords: ["QR кілька посилань", "link in bio QR", "multi URL QR", "PureQR"],
+    },
+    en: {
+      title: "Multi-Link QR Code — Link Hub | PureQR",
+      description:
+        "Bundle several URLs into one QR for bio pages and campaigns. Your link list stays in the browser.",
+      keywords: ["multi link QR", "link in bio QR", "PureQR"],
+    },
+    de: {
+      title: "Multi-Link-QR-Code — Link-Sammlung | PureQR",
+      description:
+        "Mehrere URLs in einem QR für Bio-Seiten und Kampagnen — lokal zusammengestellt.",
+      keywords: ["Multi Link QR", "Link Hub QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code multi-liens — page bio | PureQR",
+      description:
+        "Regroupez plusieurs URL dans un QR pour bio et campagnes, créé localement.",
+      keywords: ["QR multi-liens", "link in bio", "PureQR"],
+    },
+    es: {
+      title: "Código QR con varios enlaces | PureQR",
+      description:
+        "Agrupa varias URL en un QR para bio y campañas. Lista generada en el navegador.",
+      keywords: ["QR varios enlaces", "link in bio", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR z wieloma linkami | PureQR",
+      description:
+        "Połącz kilka adresów URL w jednym kodzie QR pod bio i kampanie — lokalnie w przeglądarce.",
+      keywords: ["wiele linków QR", "link in bio", "PureQR"],
+    },
+  },
+  event: {
+    uk: {
+      title: "QR-код події — календар iCal / vEvent | PureQR",
+      description:
+        "Додайте в QR дату, час, місце та назву події для імпорту в календар. vEvent збирається лише у браузері.",
+      keywords: ["QR подія", "календар QR", "vEvent QR", "PureQR"],
+    },
+    en: {
+      title: "Event QR Code — Calendar vEvent | PureQR",
+      description:
+        "Encode event title, date, time and location for calendar import. vEvent payload built locally.",
+      keywords: ["event QR code", "calendar QR", "vEvent", "PureQR"],
+    },
+    de: {
+      title: "Event-QR-Code für den Kalender | PureQR",
+      description:
+        "Titel, Datum, Uhrzeit und Ort als vEvent-QR — lokal im Browser erstellt.",
+      keywords: ["Event QR Code", "Kalender QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code événement — calendrier | PureQR",
+      description:
+        "Encodez titre, date, heure et lieu pour l’import calendrier. vEvent composé localement.",
+      keywords: ["QR code événement", "calendrier QR", "PureQR"],
+    },
+    es: {
+      title: "Código QR de evento para calendario | PureQR",
+      description:
+        "Codifica título, fecha, hora y lugar para importar al calendario. vEvent generado en local.",
+      keywords: ["QR evento", "calendario QR", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR wydarzenia — kalendarz | PureQR",
+      description:
+        "Tytuł, data, godzina i miejsce w kodzie QR vEvent — tworzone lokalnie w przeglądarce.",
+      keywords: ["kod QR wydarzenie", "kalendarz QR", "PureQR"],
+    },
+  },
+  "pdf-qr": {
+    uk: {
+      title: "QR-код на PDF-файл або документ | PureQR",
+      description:
+        "Вкажіть посилання на PDF у QR для меню, інструкцій або каталогів. URL не передається на сервер PureQR.",
+      keywords: ["QR PDF", "QR документ", "посилання на PDF QR", "PureQR"],
+    },
+    en: {
+      title: "PDF QR Code — Link to a Document | PureQR",
+      description:
+        "Turn a PDF URL into a QR for menus, manuals or catalogs. The link is encoded only in your browser.",
+      keywords: ["PDF QR code", "document QR", "PureQR"],
+    },
+    de: {
+      title: "PDF-QR-Code — Link zum Dokument | PureQR",
+      description:
+        "PDF-URL als QR für Menüs und Handbücher — lokal im Browser kodiert.",
+      keywords: ["PDF QR Code", "Dokument QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code PDF — lien vers un document | PureQR",
+      description:
+        "Transformez une URL PDF en QR pour menus et notices, encodage local.",
+      keywords: ["QR code PDF", "document QR", "PureQR"],
+    },
+    es: {
+      title: "Código QR para enlace PDF | PureQR",
+      description:
+        "Convierte una URL de PDF en QR para menús y catálogos. Codificación en el navegador.",
+      keywords: ["QR PDF", "documento QR", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR do pliku PDF | PureQR",
+      description:
+        "URL do PDF jako kod QR pod menu i instrukcje — kodowanie lokalne w przeglądarce.",
+      keywords: ["kod QR PDF", "dokument QR", "PureQR"],
+    },
+  },
+  "app-store": {
+    uk: {
+      title: "QR-код App Store / Google Play | PureQR",
+      description:
+        "Один QR веде на сторінку застосунку в Apple App Store або Google Play. Посилання збирається локально.",
+      keywords: ["QR App Store", "QR Google Play", "QR додаток", "PureQR"],
+    },
+    en: {
+      title: "App Store & Google Play QR Code | PureQR",
+      description:
+        "Send users to your iOS or Android app listing with one QR. Store URLs encoded locally.",
+      keywords: ["app store QR code", "google play QR", "PureQR"],
+    },
+    de: {
+      title: "App Store & Google Play QR-Code | PureQR",
+      description:
+        "Ein QR führt zur App im Apple App Store oder Google Play — lokal erstellt.",
+      keywords: ["App Store QR", "Google Play QR", "PureQR"],
+    },
+    fr: {
+      title: "QR code App Store et Google Play | PureQR",
+      description:
+        "Un QR vers votre app iOS ou Android. Liens magasin encodés localement.",
+      keywords: ["QR App Store", "QR Google Play", "PureQR"],
+    },
+    es: {
+      title: "Código QR App Store y Google Play | PureQR",
+      description:
+        "Dirige a tu app en iOS o Android con un QR. URLs de tienda codificadas en local.",
+      keywords: ["QR App Store", "QR Google Play", "PureQR"],
+    },
+    pl: {
+      title: "Kod QR App Store i Google Play | PureQR",
+      description:
+        "Jeden kod QR do aplikacji w Apple App Store lub Google Play — lokalnie w przeglądarce.",
+      keywords: ["QR App Store", "QR Google Play", "PureQR"],
+    },
+  },
+  "bulk-qr": {
+    uk: {
+      title: "Масове створення QR-кодів з CSV | PureQR",
+      description:
+        "Імпортуйте список значень і експортуйте пакет PNG або SVG у браузері. Файл CSV не завантажується на сервер.",
+      keywords: ["масовий QR", "QR з CSV", "пакетний QR", "PureQR"],
+    },
+    en: {
+      title: "Bulk QR Code Generator from CSV | PureQR",
+      description:
+        "Import a list and export many PNG or SVG codes in the browser. Your CSV never leaves your device.",
+      keywords: ["bulk QR code", "CSV QR generator", "PureQR"],
+    },
+    de: {
+      title: "Massen-QR-Codes aus CSV | PureQR",
+      description:
+        "Liste importieren und viele PNG/SVG-QR lokal exportieren. CSV bleibt auf dem Gerät.",
+      keywords: ["Massen QR Code", "CSV QR", "PureQR"],
+    },
+    fr: {
+      title: "QR codes en masse depuis CSV | PureQR",
+      description:
+        "Importez une liste et exportez des PNG/SVG dans le navigateur. Le CSV ne quitte pas l’appareil.",
+      keywords: ["QR code en masse", "CSV QR", "PureQR"],
+    },
+    es: {
+      title: "Códigos QR masivos desde CSV | PureQR",
+      description:
+        "Importa una lista y exporta muchos PNG/SVG en el navegador. El CSV no sale del dispositivo.",
+      keywords: ["QR masivo", "CSV QR", "PureQR"],
+    },
+    pl: {
+      title: "Masowe kody QR z pliku CSV | PureQR",
+      description:
+        "Zaimportuj listę i wyeksportuj wiele kodów PNG/SVG w przeglądarce. CSV nie trafia na serwer.",
+      keywords: ["masowy kod QR", "CSV QR", "PureQR"],
+    },
+  },
+  "pdf-print": {
+    uk: {
+      title: "Друк аркуша з кількома QR-кодами | PureQR",
+      description:
+        "Розмістіть сітку QR на сторінці PDF для друку — мітки, відступи та експорт виконуються локально у браузері.",
+      keywords: ["друк QR", "QR сітка PDF", "аркуш QR", "PureQR"],
+    },
+    en: {
+      title: "Printable QR Code Sheet — PDF Layout | PureQR",
+      description:
+        "Lay out a grid of QR codes on a print-ready PDF page. Labels and export run locally in the browser.",
+      keywords: ["print QR codes", "QR sheet PDF", "PureQR"],
+    },
+    de: {
+      title: "QR-Code-Druckbogen als PDF | PureQR",
+      description:
+        "Raster aus QR-Codes für den Druck — Beschriftung und Export lokal im Browser.",
+      keywords: ["QR drucken", "QR Bogen PDF", "PureQR"],
+    },
+    fr: {
+      title: "Planche de QR codes à imprimer — PDF | PureQR",
+      description:
+        "Disposez une grille de QR pour l’impression. Export PDF local dans le navigateur.",
+      keywords: ["imprimer QR codes", "planche QR", "PureQR"],
+    },
+    es: {
+      title: "Hoja imprimible de códigos QR — PDF | PureQR",
+      description:
+        "Organiza una cuadrícula de QR para imprimir. Exportación PDF local en el navegador.",
+      keywords: ["imprimir QR", "hoja QR PDF", "PureQR"],
+    },
+    pl: {
+      title: "Arkusz kodów QR do druku — PDF | PureQR",
+      description:
+        "Ułóż siatkę kodów QR do druku. Eksport PDF lokalnie w przeglądarce.",
+      keywords: ["druk kodów QR", "arkusz QR PDF", "PureQR"],
     },
   },
 };

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
 
 import { JsonLd } from "@/components/seo/JsonLd";
+import { SeoContentSection } from "@/components/seo/SeoContentSection";
 import { ToolShell } from "@/components/tools/ToolShell";
 import { isLocale, LOCALES, type Locale, type ToolId } from "@/i18n/locales";
 import { buildToolMetadata } from "@/lib/seo/metadata";
@@ -46,6 +47,7 @@ export function createToolPage(toolId: ToolId, ToolComponent: ComponentType) {
         <ToolShell toolId={toolId}>
           <ToolComponent />
         </ToolShell>
+        <SeoContentSection page={toolId} locale={locale} />
       </>
     );
   }

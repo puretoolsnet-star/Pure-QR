@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { HomePage } from "@/components/home/HomePage";
+import { SeoContentSection } from "@/components/seo/SeoContentSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { isLocale, LOCALES, type Locale } from "@/i18n/locales";
 import { buildHomeMetadata } from "@/lib/seo/metadata";
@@ -53,6 +54,7 @@ export default async function Page({
         ]}
       />
       <HomePage locale={locale} />
+      <SeoContentSection page="home" locale={locale} />
     </>
   );
 }
