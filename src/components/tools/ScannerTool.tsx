@@ -8,7 +8,6 @@ import { useTurnstile } from "@/components/security/TurnstileProvider";
 import { ClientPrivacyBadge } from "@/components/tools/ClientPrivacyBadge";
 import { useI18n } from "@/i18n/context";
 import { downloadTextFile } from "@/lib/qr/export";
-import { useRewardedExport } from "@/lib/use-rewarded-export";
 import { decodeQrFromCanvas, decodeQrFromFile } from "@/lib/qr/scan";
 import { resolveExternalUrl } from "@/lib/qr/url";
 import { cn } from "@/lib/cn";
@@ -18,7 +17,6 @@ type ScanMode = "file" | "camera";
 export function ScannerTool() {
   const { t } = useI18n();
   const { assertHuman } = useTurnstile();
-  const { requestExport, exportModal } = useRewardedExport("scanner");
   const inputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const scanCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -149,8 +147,7 @@ export function ScannerTool() {
   const linkHref = result ? resolveExternalUrl(result) : null;
 
   return (
-    <>
-      <div className="w-full min-w-0 space-y-6">
+    <div className="w-full min-w-0 space-y-6">
         <ClientPrivacyBadge />
 
         <div
@@ -304,7 +301,7 @@ export function ScannerTool() {
               <button
                 type="button"
                 className="btn-primary w-full sm:w-auto"
-                onClick={() => requestExport(exportResult)}
+                onClick={exportResult}
               >
                 {t.scanner.exportResult}
               </button>
@@ -321,8 +318,6 @@ export function ScannerTool() {
             </div>
           </div>
         ) : null}
-      </div>
-      {exportModal}
-    </>
+    </div>
   );
 }

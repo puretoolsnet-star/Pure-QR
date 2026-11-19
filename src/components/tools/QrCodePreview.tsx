@@ -5,12 +5,9 @@ import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
 
 import { ClientPrivacyBadge } from "@/components/tools/ClientPrivacyBadge";
 import { useI18n } from "@/i18n/context";
-import type { ToolId } from "@/i18n/locales";
 import { downloadCanvasPng, downloadSvgElement } from "@/lib/qr/export";
-import { useRewardedExport } from "@/lib/use-rewarded-export";
 
 export type QrCodePreviewProps = {
-  toolId: ToolId;
   value: string;
   size: number;
   fgColor: string;
@@ -21,7 +18,6 @@ export type QrCodePreviewProps = {
 };
 
 export function QrCodePreview({
-  toolId,
   value,
   size,
   fgColor,
@@ -31,7 +27,6 @@ export function QrCodePreview({
   fileBase,
 }: QrCodePreviewProps) {
   const { t } = useI18n();
-  const { requestExport, exportModal } = useRewardedExport(toolId);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -47,8 +42,7 @@ export function QrCodePreview({
   };
 
   return (
-    <>
-      <div className="flex w-full min-w-0 flex-col items-stretch gap-4">
+    <div className="flex w-full min-w-0 flex-col items-stretch gap-4">
         <ClientPrivacyBadge />
         <h2 className="text-sm font-medium text-gray-300">{t.generator.preview}</h2>
 
@@ -88,9 +82,7 @@ export function QrCodePreview({
             className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
             disabled={!hasValue}
             onClick={() =>
-              requestExport(() =>
-                downloadCanvasPng(canvasRef.current, `${fileBase}.png`),
-              )
+              downloadCanvasPng(canvasRef.current, `${fileBase}.png`)
             }
           >
             {t.common.downloadPng}
@@ -100,16 +92,12 @@ export function QrCodePreview({
             className="btn-secondary w-full disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
             disabled={!hasValue}
             onClick={() =>
-              requestExport(() =>
-                downloadSvgElement(svgRef.current, `${fileBase}.svg`),
-              )
+              downloadSvgElement(svgRef.current, `${fileBase}.svg`)
             }
           >
             {t.common.downloadSvg}
           </button>
         </div>
-      </div>
-      {exportModal}
-    </>
+    </div>
   );
 }

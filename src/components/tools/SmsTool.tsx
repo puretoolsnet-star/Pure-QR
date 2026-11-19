@@ -55,7 +55,6 @@ export function SmsTool() {
         />
       </div>
       <QrCodePreview
-        toolId="sms"
         value={payload}
         size={size}
         fgColor={dark}

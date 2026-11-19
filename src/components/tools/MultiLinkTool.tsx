@@ -99,7 +99,6 @@ export function MultiLinkTool() {
         />
       </div>
       <QrCodePreview
-        toolId="multi-link"
         value={payload}
         size={size}
         fgColor={dark}

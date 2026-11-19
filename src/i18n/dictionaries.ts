@@ -164,27 +164,6 @@ const uk: RawLocaleDictionary = {
     openLink: "Відкрити посилання",
     exportResult: "Завантажити результат (.txt)",
   },
-  rewardedAd: {
-    sponsored: "Підтримка проєкту",
-    title: "Завантажити готовий файл",
-    message:
-      "Короткий перегляд спонсорського блоку — єдина умова, щоб тримати PureQR безкоштовним, повністю приватним і без реєстрацій чи підписок.",
-    watch: "Переглянути спонсорське відео для завантаження",
-    watching: "Триває спонсорський перегляд…",
-    download: "Завантажити файл",
-    waitHint:
-      "Натисніть кнопку нижче, щоб запустити спонсорський блок Adsterra. Продовжити без перегляду неможливо.",
-    progress: (seconds) => `${seconds} с`,
-    thanks: "Дякуємо за підтримку. Файл зараз завантажиться на ваш пристрій.",
-    close: "Закрити",
-    slotLabel: "Спонсорський блок Adsterra",
-  },
-  toolAd: {
-    sponsored: "Реклама",
-    slotTitle: "Місце для реклами",
-    slotHint:
-      "Партнерські оголошення тут допомагають тримати PureQR безкоштовним для всіх.",
-  },
 };
 
 const en: RawLocaleDictionary = {
@@ -347,26 +326,6 @@ const en: RawLocaleDictionary = {
     scanning: "Scanning…",
     openLink: "Open link",
     exportResult: "Download result (.txt)",
-  },
-  rewardedAd: {
-    sponsored: "Support the project",
-    title: "Download your file",
-    message:
-      "A short sponsor view is the only condition that keeps PureQR free, fully private, and without sign-ups or subscriptions.",
-    watch: "Watch sponsor video to download",
-    watching: "Sponsor view in progress…",
-    download: "Download file",
-    waitHint:
-      "Tap the button below to start the Adsterra sponsor block. There is no way to continue without watching.",
-    progress: (seconds) => `${seconds}s`,
-    thanks: "Thank you for the support. Your file will download now.",
-    close: "Close",
-    slotLabel: "Adsterra sponsor block",
-  },
-  toolAd: {
-    sponsored: "Sponsored",
-    slotTitle: "Ad space",
-    slotHint: "Partner placements here help keep PureQR free for everyone.",
   },
 };
 
@@ -533,21 +492,6 @@ const pl: RawLocaleDictionary = {
     openLink: "Otwórz link",
     exportResult: "Pobierz wynik (.txt)",
   },
-  rewardedAd: {
-    sponsored: "Wesprzyj projekt",
-    title: "Pobierz gotowy plik",
-    message:
-      "Krótki blok sponsora to jedyny warunek, by PureQR pozostał darmowy, w pełni prywatny i bez rejestracji oraz subskrypcji.",
-    watch: "Obejrzyj wideo sponsora, aby pobrać",
-    watching: "Trwa odtwarzanie sponsora…",
-    download: "Pobierz plik",
-    waitHint:
-      "Kliknij przycisk poniżej, aby uruchomić blok Adsterra. Nie można kontynuować bez obejrzenia.",
-    progress: (seconds) => `${seconds} s`,
-    thanks: "Dziękujemy za wsparcie. Plik zaraz się pobierze.",
-    close: "Zamknij",
-    slotLabel: "Blok sponsora Adsterra",
-  },
 };
 
 const de: RawLocaleDictionary = {
@@ -712,21 +656,6 @@ const de: RawLocaleDictionary = {
     scanning: "Scanne…",
     openLink: "Link öffnen",
     exportResult: "Ergebnis laden (.txt)",
-  },
-  rewardedAd: {
-    sponsored: "Projekt unterstützen",
-    title: "Fertige Datei herunterladen",
-    message:
-      "Ein kurzer Sponsor-Block ist die einzige Bedingung, damit PureQR kostenlos, vollständig privat und ohne Registrierung oder Abo bleibt.",
-    watch: "Sponsor-Video ansehen, um herunterzuladen",
-    watching: "Sponsor-Ansicht läuft…",
-    download: "Datei herunterladen",
-    waitHint:
-      "Tippen Sie unten, um den Adsterra-Sponsorblock zu starten. Ein Fortfahren ohne Ansehen ist nicht möglich.",
-    progress: (seconds) => `${seconds} s`,
-    thanks: "Danke für die Unterstützung. Die Datei wird jetzt heruntergeladen.",
-    close: "Schließen",
-    slotLabel: "Adsterra-Sponsorblock",
   },
 };
 
@@ -893,21 +822,6 @@ const es: RawLocaleDictionary = {
     openLink: "Abrir enlace",
     exportResult: "Descargar resultado (.txt)",
   },
-  rewardedAd: {
-    sponsored: "Apoya el proyecto",
-    title: "Descargar el archivo listo",
-    message:
-      "Un breve bloque de patrocinio es la única condición para mantener PureQR gratis, totalmente privado y sin registros ni suscripciones.",
-    watch: "Ver vídeo del patrocinador para descargar",
-    watching: "Reproducción del patrocinador en curso…",
-    download: "Descargar archivo",
-    waitHint:
-      "Pulsa el botón para iniciar el bloque Adsterra. No se puede continuar sin verlo.",
-    progress: (seconds) => `${seconds} s`,
-    thanks: "Gracias por el apoyo. El archivo se descargará ahora.",
-    close: "Cerrar",
-    slotLabel: "Bloque patrocinador Adsterra",
-  },
 };
 
 const fr: RawLocaleDictionary = {
@@ -1072,21 +986,6 @@ const fr: RawLocaleDictionary = {
     scanning: "Analyse…",
     openLink: "Ouvrir le lien",
     exportResult: "Télécharger le résultat (.txt)",
-  },
-  rewardedAd: {
-    sponsored: "Soutenir le projet",
-    title: "Télécharger le fichier prêt",
-    message:
-      "Un court bloc sponsor est la seule condition pour garder PureQR gratuit, entièrement privé, sans inscription ni abonnement.",
-    watch: "Regarder la vidéo sponsor pour télécharger",
-    watching: "Visionnage sponsor en cours…",
-    download: "Télécharger le fichier",
-    waitHint:
-      "Appuyez ci-dessous pour lancer le bloc Adsterra. Impossible de continuer sans le regarder.",
-    progress: (seconds) => `${seconds} s`,
-    thanks: "Merci pour le soutien. Le fichier va se télécharger.",
-    close: "Fermer",
-    slotLabel: "Bloc sponsor Adsterra",
   },
 };
 

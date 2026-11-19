@@ -70,7 +70,6 @@ export function LocationTool() {
         />
       </div>
       <QrCodePreview
-        toolId="location"
         value={payload}
         size={size}
         fgColor={dark}

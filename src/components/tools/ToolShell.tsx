@@ -4,7 +4,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 
-import { ToolWorkspaceLayout } from "@/components/layout/ToolWorkspaceLayout";
 import { useI18n } from "@/i18n/context";
 import type { ToolId } from "@/i18n/locales";
 import { homeRoute } from "@/lib/i18n/routing";
@@ -37,11 +36,9 @@ export function ToolShell({ toolId, children }: ToolShellProps) {
         <p className="text-xs text-gray-500">{t.common.clientSideNote}</p>
       </header>
 
-      <ToolWorkspaceLayout adSlot={`tool-${toolId}-sidebar`}>
-        <div className="glass-card w-full min-w-0 overflow-hidden rounded-2xl p-4 sm:p-6">
-          {children}
-        </div>
-      </ToolWorkspaceLayout>
+      <div className="glass-card w-full min-w-0 overflow-hidden rounded-2xl p-4 sm:p-6">
+        {children}
+      </div>
     </div>
   );
 }

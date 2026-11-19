@@ -74,7 +74,6 @@ export function WifiTool() {
       </div>
 
       <QrCodePreview
-        toolId="wifi"
         value={payload}
         size={320}
         fgColor="#042f2e"

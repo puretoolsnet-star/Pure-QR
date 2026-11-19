@@ -112,7 +112,6 @@ export function MenuTool() {
       </div>
 
       <QrCodePreview
-        toolId="menu"
         value={qrValue}
         size={320}
         fgColor={dark}

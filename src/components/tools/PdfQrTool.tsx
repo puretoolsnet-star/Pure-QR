@@ -45,7 +45,6 @@ export function PdfQrTool() {
         />
       </div>
       <QrCodePreview
-        toolId="pdf-qr"
         value={payload}
         size={size}
         fgColor={dark}

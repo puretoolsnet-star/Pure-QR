@@ -92,7 +92,6 @@ export function EventTool() {
         />
       </div>
       <QrCodePreview
-        toolId="event"
         value={payload}
         size={size}
         fgColor={dark}

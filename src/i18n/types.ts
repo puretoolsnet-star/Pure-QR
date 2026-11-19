@@ -186,24 +186,6 @@ export type Dictionary = {
     errorLevel: string;
     removeLogo: string;
   };
-  rewardedAd: {
-    sponsored: string;
-    title: string;
-    message: string;
-    watch: string;
-    watching: string;
-    download: string;
-    waitHint: string;
-    progress: (seconds: number) => string;
-    thanks: string;
-    close: string;
-    slotLabel: string;
-  };
-  toolAd: {
-    sponsored: string;
-    slotTitle: string;
-    slotHint: string;
-  };
 };
 
 export type LegacyToolId =
@@ -240,6 +222,4 @@ export type RawLocaleDictionary = {
     | "cameraStop"
     | "cameraDenied"
   >;
-  rewardedAd: Dictionary["rewardedAd"];
-  toolAd: Dictionary["toolAd"];
 };

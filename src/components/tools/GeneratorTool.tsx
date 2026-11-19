@@ -94,7 +94,6 @@ export function GeneratorTool() {
       </div>
 
       <QrCodePreview
-        toolId="generator"
         value={qrValue}
         size={size}
         fgColor={dark}

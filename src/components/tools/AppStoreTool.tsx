@@ -60,7 +60,6 @@ export function AppStoreTool() {
         />
       </div>
       <QrCodePreview
-        toolId="app-store"
         value={payload}
         size={size}
         fgColor={dark}

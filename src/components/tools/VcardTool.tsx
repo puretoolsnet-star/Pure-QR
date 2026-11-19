@@ -105,7 +105,6 @@ export function VcardTool() {
       </div>
 
       <QrCodePreview
-        toolId="vcard"
         value={payload}
         size={320}
         fgColor="#042f2e"

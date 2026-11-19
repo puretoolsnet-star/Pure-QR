@@ -46,7 +46,6 @@ export function PhoneTool() {
         />
       </div>
       <QrCodePreview
-        toolId="phone"
         value={payload}
         size={size}
         fgColor={dark}

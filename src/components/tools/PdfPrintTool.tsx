@@ -6,7 +6,6 @@ import { QRCodeCanvas } from "qrcode.react";
 import { ClientPrivacyBadge } from "@/components/tools/ClientPrivacyBadge";
 import { useI18n } from "@/i18n/context";
 import { downloadQrCanvasesAsPngs } from "@/lib/qr/bulk-export";
-import { useRewardedExport } from "@/lib/use-rewarded-export";
 
 type PrintRow = { label: string; value: string };
 
@@ -17,7 +16,6 @@ const DEFAULT: PrintRow[] = [
 
 export function PdfPrintTool() {
   const { t } = useI18n();
-  const { requestExport, exportModal } = useRewardedExport("pdf-print");
   const [rows, setRows] = useState<PrintRow[]>(DEFAULT);
   const exportRefs = useRef<Array<HTMLCanvasElement | null>>([]);
 
@@ -85,8 +83,7 @@ ${validRows
   }
 
   return (
-    <>
-      <div className="w-full min-w-0 space-y-6">
+    <div className="w-full min-w-0 space-y-6">
         <ClientPrivacyBadge />
         <p className="text-sm text-gray-400">{t.pdfPrint.hint}</p>
 
@@ -161,7 +158,7 @@ ${validRows
             type="button"
             className="btn-primary w-full sm:w-auto"
             disabled={validRows.length === 0}
-            onClick={() => requestExport(printSheet)}
+            onClick={printSheet}
           >
             {t.pdfPrint.print}
           </button>
@@ -169,7 +166,7 @@ ${validRows
             type="button"
             className="btn-secondary w-full sm:w-auto"
             disabled={validRows.length === 0}
-            onClick={() => requestExport(batchPng)}
+            onClick={batchPng}
           >
             {t.pdfPrint.exportBatch}
           </button>
@@ -194,8 +191,6 @@ ${validRows
             />
           ))}
         </div>
-      </div>
-      {exportModal}
-    </>
+    </div>
   );
 }

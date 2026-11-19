@@ -8,14 +8,12 @@ import { FieldError } from "@/components/tools/FieldError";
 import { useI18n } from "@/i18n/context";
 import { downloadQrCanvasesAsPngs } from "@/lib/qr/bulk-export";
 import { parseBulkCsv } from "@/lib/qr/formats";
-import { useRewardedExport } from "@/lib/use-rewarded-export";
 
 const PREVIEW_LIMIT = 12;
 const MAX_EXPORT = 200;
 
 export function BulkQrTool() {
   const { t } = useI18n();
-  const { requestExport, exportModal } = useRewardedExport("bulk-qr");
   const [csv, setCsv] = useState(t.bulkQr.csvPlaceholder);
   const [dark, setDark] = useState("#042f2e");
   const [light, setLight] = useState("#ffffff");
@@ -35,8 +33,7 @@ export function BulkQrTool() {
   }
 
   return (
-    <>
-      <div className="w-full min-w-0 space-y-6">
+    <div className="w-full min-w-0 space-y-6">
         <ClientPrivacyBadge />
         <label className="block space-y-1.5">
           <span className="text-sm text-gray-300">{t.bulkQr.csvLabel}</span>
@@ -104,7 +101,7 @@ export function BulkQrTool() {
           type="button"
           className="btn-primary w-full sm:w-auto"
           disabled={rows.length === 0}
-          onClick={() => requestExport(runBulkExport)}
+          onClick={runBulkExport}
         >
           {t.bulkQr.exportAll}
         </button>
@@ -128,8 +125,6 @@ export function BulkQrTool() {
             />
           ))}
         </div>
-      </div>
-      {exportModal}
-    </>
+    </div>
   );
 }

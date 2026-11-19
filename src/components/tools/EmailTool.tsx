@@ -64,7 +64,6 @@ export function EmailTool() {
         />
       </div>
       <QrCodePreview
-        toolId="email"
         value={payload}
         size={size}
         fgColor={dark}

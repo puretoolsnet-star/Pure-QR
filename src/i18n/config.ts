@@ -65,5 +65,3 @@ export const LOCALE_LABELS: Record<
 export function isLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value);
 }
-
-export const BULK_EXPORT_TOOL_IDS = ["bulk-qr", "pdf-print"] as const;

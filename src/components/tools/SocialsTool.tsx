@@ -95,7 +95,6 @@ export function SocialsTool() {
         />
       </div>
       <QrCodePreview
-        toolId="socials"
         value={payload}
         size={size}
         fgColor={dark}
