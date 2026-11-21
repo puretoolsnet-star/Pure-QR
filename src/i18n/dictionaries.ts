@@ -22,6 +22,10 @@ const uk: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Інструменти для роботи з PDF.",
       },
+      pureImage: {
+        name: "PureImage",
+        tagline: "Обробка зображень локально у браузері.",
+      },
       pureqr: {
         name: "PureQR",
         tagline: "Генератор та менеджер QR-кодів.",
@@ -186,6 +190,10 @@ const en: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Fast PDF processing tools.",
       },
+      pureImage: {
+        name: "PureImage",
+        tagline: "Browser-local image processing tools.",
+      },
       pureqr: {
         name: "PureQR",
         tagline: "Modern QR code generator & manager.",
@@ -349,6 +357,10 @@ const pl: RawLocaleDictionary = {
       purepdf: {
         name: "PurePDF",
         tagline: "Szybkie narzędzia do obsługi plików PDF.",
+      },
+      pureImage: {
+        name: "PureImage",
+        tagline: "Narzędzia do obrazów działające lokalnie w przeglądarce.",
       },
       pureqr: {
         name: "PureQR",
@@ -515,6 +527,10 @@ const de: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Schnelle PDF-Verarbeitungstools.",
       },
+      pureImage: {
+        name: "PureImage",
+        tagline: "Bildbearbeitung lokal im Browser.",
+      },
       pureqr: {
         name: "PureQR",
         tagline: "Moderne QR-Code-Erstellung & Verwaltung.",
@@ -680,6 +696,10 @@ const es: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Herramientas rápidas para archivos PDF.",
       },
+      pureImage: {
+        name: "PureImage",
+        tagline: "Herramientas de imágenes en el navegador.",
+      },
       pureqr: {
         name: "PureQR",
         tagline: "Generador y gestor de códigos QR.",
@@ -844,6 +864,10 @@ const fr: RawLocaleDictionary = {
       purepdf: {
         name: "PurePDF",
         tagline: "Outils de traitement PDF rapides.",
+      },
+      pureImage: {
+        name: "PureImage",
+        tagline: "Outils image exécutés localement dans le navigateur.",
       },
       pureqr: {
         name: "PureQR",

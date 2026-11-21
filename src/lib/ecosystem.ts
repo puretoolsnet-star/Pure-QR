@@ -4,6 +4,7 @@ import { localizedPath } from "@/lib/i18n/routing";
 
 export type EcosystemProjectId =
   | "purepdf"
+  | "pureImage"
   | "pureqr"
   | "pureSign"
   | "pureTable";
@@ -37,11 +38,22 @@ const pureTableOrigin = origin(
   "https://table.kixt.net",
 );
 
+const pureImageOrigin = origin(
+  process.env.NEXT_PUBLIC_ECOSYSTEM_PUREIMAGE_URL,
+  "https://img.kixt.net",
+);
+
 export const ECOSYSTEM_PROJECTS: EcosystemProjectMeta[] = [
   {
     id: "purepdf",
     status: "active",
     href: purepdfOrigin,
+    external: true,
+  },
+  {
+    id: "pureImage",
+    status: "active",
+    href: pureImageOrigin,
     external: true,
   },
   { id: "pureqr", status: "active", href: "/" },

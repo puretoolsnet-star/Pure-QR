@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, PenLine, QrCode, Table2 } from "lucide-react";
+import { FileText, Image, PenLine, QrCode, Table2 } from "lucide-react";
 import Link from "next/link";
 
 import { useI18n } from "@/i18n/context";
@@ -13,6 +13,7 @@ import { cn } from "@/lib/cn";
 
 const PROJECT_ICONS: Record<EcosystemProjectId, typeof QrCode> = {
   purepdf: FileText,
+  pureImage: Image,
   pureqr: QrCode,
   pureSign: PenLine,
   pureTable: Table2,
