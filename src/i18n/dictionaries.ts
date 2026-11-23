@@ -22,6 +22,10 @@ const uk: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Інструменти для роботи з PDF.",
       },
+      pureConvert: {
+        name: "PureConvert",
+        tagline: "Конвертація форматів файлів — локально у браузері.",
+      },
       pureImage: {
         name: "PureImage",
         tagline: "Обробка зображень локально у браузері.",
@@ -194,6 +198,10 @@ const en: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Fast PDF processing tools.",
       },
+      pureConvert: {
+        name: "PureConvert",
+        tagline: "File format conversion — processed locally in your browser.",
+      },
       pureImage: {
         name: "PureImage",
         tagline: "Browser-local image processing tools.",
@@ -365,6 +373,10 @@ const pl: RawLocaleDictionary = {
       purepdf: {
         name: "PurePDF",
         tagline: "Szybkie narzędzia do obsługi plików PDF.",
+      },
+      pureConvert: {
+        name: "PureConvert",
+        tagline: "Konwersja formatów plików — lokalnie w przeglądarce.",
       },
       pureImage: {
         name: "PureImage",
@@ -539,6 +551,10 @@ const de: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Schnelle PDF-Verarbeitungstools.",
       },
+      pureConvert: {
+        name: "PureConvert",
+        tagline: "Dateiformat-Konvertierung — lokal in Ihrem Browser.",
+      },
       pureImage: {
         name: "PureImage",
         tagline: "Bildbearbeitung lokal im Browser.",
@@ -712,6 +728,10 @@ const es: RawLocaleDictionary = {
         name: "PurePDF",
         tagline: "Herramientas rápidas para archivos PDF.",
       },
+      pureConvert: {
+        name: "PureConvert",
+        tagline: "Conversión de formatos de archivo — localmente en el navegador.",
+      },
       pureImage: {
         name: "PureImage",
         tagline: "Herramientas de imágenes en el navegador.",
@@ -884,6 +904,10 @@ const fr: RawLocaleDictionary = {
       purepdf: {
         name: "PurePDF",
         tagline: "Outils de traitement PDF rapides.",
+      },
+      pureConvert: {
+        name: "PureConvert",
+        tagline: "Conversion de formats de fichiers — localement dans le navigateur.",
       },
       pureImage: {
         name: "PureImage",
