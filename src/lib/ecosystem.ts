@@ -7,7 +7,8 @@ export type EcosystemProjectId =
   | "pureImage"
   | "pureqr"
   | "pureSign"
-  | "pureTable";
+  | "pureTable"
+  | "pureText";
 
 export type EcosystemProjectStatus = "active" | "comingSoon";
 
@@ -43,6 +44,11 @@ const pureImageOrigin = origin(
   "https://img.kixt.net",
 );
 
+const pureTextOrigin = origin(
+  process.env.NEXT_PUBLIC_ECOSYSTEM_PURETEXT_URL,
+  "https://text.kixt.net",
+);
+
 export const ECOSYSTEM_PROJECTS: EcosystemProjectMeta[] = [
   {
     id: "purepdf",
@@ -67,6 +73,12 @@ export const ECOSYSTEM_PROJECTS: EcosystemProjectMeta[] = [
     id: "pureTable",
     status: "active",
     href: pureTableOrigin,
+    external: true,
+  },
+  {
+    id: "pureText",
+    status: "active",
+    href: pureTextOrigin,
     external: true,
   },
 ];

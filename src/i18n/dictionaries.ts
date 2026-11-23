@@ -38,6 +38,10 @@ const uk: RawLocaleDictionary = {
         name: "PureTable",
         tagline: "Бізнес-утиліта для парсингу накладних у Excel/CSV.",
       },
+      pureText: {
+        name: "PureText",
+        tagline: "Інструменти для тексту — локально у браузері.",
+      },
     },
   },
   footer: {
@@ -206,6 +210,10 @@ const en: RawLocaleDictionary = {
         name: "PureTable",
         tagline: "Business utility for parsing invoices into Excel/CSV.",
       },
+      pureText: {
+        name: "PureText",
+        tagline: "Text tools — processed locally in your browser.",
+      },
     },
   },
   footer: {
@@ -373,6 +381,10 @@ const pl: RawLocaleDictionary = {
       pureTable: {
         name: "PureTable",
         tagline: "Narzędzie biznesowe do parsowania faktur.",
+      },
+      pureText: {
+        name: "PureText",
+        tagline: "Narzędzia tekstowe — lokalnie w przeglądarce.",
       },
     },
   },
@@ -543,6 +555,10 @@ const de: RawLocaleDictionary = {
         name: "PureTable",
         tagline: "Geschäftsdienstprogramm zum Parsen von Rechnungen.",
       },
+      pureText: {
+        name: "PureText",
+        tagline: "Texttools — lokal in Ihrem Browser.",
+      },
     },
   },
   footer: {
@@ -712,6 +728,10 @@ const es: RawLocaleDictionary = {
         name: "PureTable",
         tagline: "Utilidad de negocio para procesar facturas.",
       },
+      pureText: {
+        name: "PureText",
+        tagline: "Herramientas de texto — en el navegador, de forma local.",
+      },
     },
   },
   footer: {
@@ -880,6 +900,10 @@ const fr: RawLocaleDictionary = {
       pureTable: {
         name: "PureTable",
         tagline: "Utilitaire métier pour analyser les factures.",
+      },
+      pureText: {
+        name: "PureText",
+        tagline: "Outils texte — traitement local dans le navigateur.",
       },
     },
   },
