@@ -41,7 +41,7 @@ export async function GET(_request: Request, context: RouteContext) {
   }
 
   const copy = getSeoCopy(page, locale);
-  const headline = copy.title.replace(/\s*\|\s*PureQR\s*$/, "");
+  const headline = copy.title.replace(/\s*(?:\||—)\s*PureQR\s*$/u, "");
   const fonts = await loadFonts();
 
   return new ImageResponse(
@@ -96,6 +96,10 @@ export async function GET(_request: Request, context: RouteContext) {
     {
       ...SIZE,
       fonts,
+      headers: {
+        "X-Robots-Tag": "noindex, nofollow",
+        "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
+      },
     },
   );
 }

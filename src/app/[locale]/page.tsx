@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { isLocale, LOCALES, type Locale } from "@/i18n/locales";
 import { buildHomeMetadata } from "@/lib/seo/metadata";
 import {
+  homeToolsItemListJsonLd,
   siteOrganizationJsonLd,
   softwareApplicationJsonLd,
   webPageJsonLd,
@@ -51,6 +52,7 @@ export default async function Page({
           siteOrganizationJsonLd(locale),
           softwareApplicationJsonLd(locale),
           webPageJsonLd("home", locale),
+          homeToolsItemListJsonLd(locale),
         ]}
       />
       <HomePage locale={locale} />

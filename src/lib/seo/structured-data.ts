@@ -4,14 +4,14 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getSeoCopy, type SeoPageId } from "@/i18n/seo/copy";
 import { localizedPath } from "@/lib/i18n/routing";
 import {
+  CANONICAL_SITE_ORIGIN,
   HREFLANG_MAP,
   SITE_NAME,
-  absoluteUrl,
-  getSiteUrl,
+  canonicalAbsoluteUrl,
 } from "@/lib/seo/site";
 
 export function siteOrganizationJsonLd(locale: Locale) {
-  const siteUrl = getSiteUrl();
+  const siteUrl = CANONICAL_SITE_ORIGIN;
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -24,14 +24,30 @@ export function siteOrganizationJsonLd(locale: Locale) {
       name: SITE_NAME,
       url: siteUrl,
     },
-    mainEntityOfPage: absoluteUrl(localizedPath(locale, "/")),
+    mainEntityOfPage: canonicalAbsoluteUrl(localizedPath(locale, "/")),
+  };
+}
+
+export function homeToolsItemListJsonLd(locale: Locale) {
+  const dictionary = getDictionary(locale);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: dictionary.nav.tools,
+    numberOfItems: TOOL_IDS.length,
+    itemListElement: TOOL_IDS.map((id, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: dictionary.tools[id].title,
+      url: canonicalAbsoluteUrl(localizedPath(locale, `/tools/${id}`)),
+    })),
   };
 }
 
 export function softwareApplicationJsonLd(locale: Locale) {
   const d = getDictionary(locale);
-  const url = absoluteUrl(localizedPath(locale, "/"));
-  const siteUrl = getSiteUrl();
+  const url = canonicalAbsoluteUrl(localizedPath(locale, "/"));
+  const siteUrl = CANONICAL_SITE_ORIGIN;
 
   const featureList = TOOL_IDS.map((id) => d.tools[id].title);
 
@@ -64,7 +80,7 @@ function pagePath(page: SeoPageId): string {
 
 export function webPageJsonLd(page: SeoPageId, locale: Locale) {
   const copy = getSeoCopy(page, locale);
-  const url = absoluteUrl(localizedPath(locale, pagePath(page)));
+  const url = canonicalAbsoluteUrl(localizedPath(locale, pagePath(page)));
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -72,14 +88,14 @@ export function webPageJsonLd(page: SeoPageId, locale: Locale) {
     description: copy.description,
     url,
     inLanguage: HREFLANG_MAP[locale],
-    isPartOf: { "@id": `${getSiteUrl()}/#website` },
+    isPartOf: { "@id": `${CANONICAL_SITE_ORIGIN}/#website` },
   };
 }
 
 export function breadcrumbJsonLd(toolId: ToolId, locale: Locale) {
   const dictionary = getDictionary(locale);
-  const homeUrl = absoluteUrl(localizedPath(locale, "/"));
-  const toolUrl = absoluteUrl(localizedPath(locale, `/tools/${toolId}`));
+  const homeUrl = canonicalAbsoluteUrl(localizedPath(locale, "/"));
+  const toolUrl = canonicalAbsoluteUrl(localizedPath(locale, `/tools/${toolId}`));
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -123,7 +139,7 @@ export function faqPageJsonLd(
 export function buildToolStructuredData(toolId: ToolId, locale: Locale) {
   const d = getDictionary(locale);
   const tool = d.tools[toolId];
-  const url = absoluteUrl(localizedPath(locale, `/tools/${toolId}`));
+  const url = canonicalAbsoluteUrl(localizedPath(locale, `/tools/${toolId}`));
 
   return {
     "@context": "https://schema.org",

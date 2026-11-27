@@ -532,7 +532,7 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
   },
   email: {
     uk: {
-      title: "QR-код для email — prepopulated лист | PureQR",
+      title: "QR-код для email — готова чернетка листа | PureQR",
       description:
         "Створіть QR, що відкриває чернетку листа з адресою, темою та текстом. Усі поля збираються лише у браузері.",
       keywords: ["QR email", "QR код для листа", "mailto QR", "PureQR"],
@@ -949,6 +949,13 @@ const COPY: Partial<Record<SeoPageId, Record<Locale, SeoCopy>>> = {
     },
   },
 };
+
+const BRAND_TITLE_SUFFIX = /\s*(?:\||—)\s*PureQR\s*$/u;
+
+/** Visible H1 aligned with metadata title, without the PureQR suffix. */
+export function getSeoH1(page: SeoPageId, locale: Locale): string {
+  return getSeoCopy(page, locale).title.replace(BRAND_TITLE_SUFFIX, "").trim();
+}
 
 export function getSeoCopy(page: SeoPageId, locale: Locale): SeoCopy {
   const explicit = COPY[page as keyof typeof COPY]?.[locale];

@@ -7,6 +7,7 @@ import { useCategoryAccordion } from "@/components/home/use-category-accordion";
 import { useI18n } from "@/i18n/context";
 import { TOOL_CATEGORIES } from "@/lib/tools/catalog";
 import type { Locale } from "@/i18n/locales";
+import { getSeoH1 } from "@/i18n/seo/copy";
 
 interface HomePageProps {
   locale: Locale;
@@ -25,7 +26,7 @@ export function HomePage({ locale }: HomePageProps) {
     return <div className="min-h-[60vh]" />;
   }
 
-  void locale;
+  const heroHeading = getSeoH1("home", locale);
 
   return (
     <div className="space-y-10">
@@ -34,7 +35,7 @@ export function HomePage({ locale }: HomePageProps) {
           {t.brand.tagline}
         </p>
         <h1 className="text-balance break-words text-2xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-          {t.home.heroTitle}
+          {heroHeading}
         </h1>
         <p className="mx-auto max-w-2xl text-balance text-base text-gray-300 sm:mx-0 sm:text-lg">
           {t.home.heroSubtitle}

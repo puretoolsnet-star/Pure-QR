@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 
 import { useI18n } from "@/i18n/context";
 import type { ToolId } from "@/i18n/locales";
+import { getSeoH1 } from "@/i18n/seo/copy";
 import { homeRoute } from "@/lib/i18n/routing";
 
 type ToolShellProps = {
@@ -16,6 +17,7 @@ type ToolShellProps = {
 export function ToolShell({ toolId, children }: ToolShellProps) {
   const { locale, t } = useI18n();
   const tool = t.tools[toolId];
+  const pageTitle = getSeoH1(toolId, locale);
 
   return (
     <div className="space-y-6">
@@ -29,7 +31,7 @@ export function ToolShell({ toolId, children }: ToolShellProps) {
 
       <header className="space-y-2">
         <h1 className="break-words text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
-          {tool.title}
+          {pageTitle}
         </h1>
         <p className="max-w-2xl break-words text-gray-300">{tool.description}</p>
         <p className="text-sm text-cyan-200/80">{tool.hint}</p>

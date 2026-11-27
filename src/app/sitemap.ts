@@ -29,7 +29,7 @@ function sitemapEntry(
   }));
 }
 
-const CONTENT_UPDATED = new Date("2026-11-06T00:00:00.000Z");
+const CONTENT_UPDATED = new Date("2026-11-27T00:00:00.000Z");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_UPDATED;
